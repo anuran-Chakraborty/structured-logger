@@ -15,9 +15,9 @@
         </el-table-column>
         <el-table-column label="Name" width="600">
           <template #default="scope">
-            <a size="mini" type="danger" @click="handleClick(scope.row._id)">{{
+            <el-link type="primary" @click="handleClick(scope.row._id)">{{
               scope.row.name
-            }}</a>
+            }}</el-link>
           </template>
         </el-table-column>
         <el-table-column fixed="right" label="">
@@ -33,10 +33,13 @@
       </el-table>
     </el-col>
   </el-row>
+
+  <create-modal ref="createModal" @created="fetchRecords"></create-modal>
 </template>
 
 <script>
 import { fetchAll, remove } from "../api";
+import CreateModal from "../components/CreateModal";
 import _ from "lodash";
 
 export default {
@@ -50,7 +53,9 @@ export default {
       serverItemsLength: 0,
     };
   },
-  components: {},
+  components: {
+    CreateModal,
+  },
   created: async function () {
     await this.fetchRecords();
   },
@@ -77,7 +82,7 @@ export default {
     },
 
     handleCreate() {
-      return;
+      this.$refs.createModal.isVisible = true;
     },
 
     async handleDelete(id) {

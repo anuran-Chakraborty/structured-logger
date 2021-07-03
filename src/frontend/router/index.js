@@ -1,6 +1,6 @@
 import { createWebHistory, createRouter } from "vue-router";
-import LogSpaces from "../components/LogSpaces";
-import Logs from "../components/Logs";
+import LogSpaces from "../views/LogSpaces";
+import Logs from "../views/Logs";
 
 const routes = [
   {
