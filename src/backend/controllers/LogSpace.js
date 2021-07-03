@@ -61,7 +61,7 @@ class LogSpaceController {
         logspace_id: req.params.id
       });
       res.status(200).send({ message: "Deleted successfully!" });
-    } catch (error) {
+    } catch (e) {
       console.error("Error", e.message);
       res.status(500).send({ message: "Error deleting logspace" });
     }

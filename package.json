@@ -4,14 +4,14 @@
   "private": true,
   "author": "Anuran Chakraborty",
   "scripts": {
-    "start:frontend": "vue-cli-service serve",
-    "start:backend": "node src/backend/index.js",
-    "start": "concurrently --kill-others \"npm run start:frontend\" \"npm run start:backend\"",
-    "dev:frontend": "vue-cli-service serve",
-    "dev:backend": "nodemon src/backend/index.js",
-    "dev": "concurrently --kill-others \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "lint": "vue-cli-service lint",
     "build:frontend": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "concurrently --kill-others \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:backend": "nodemon src/backend/index.js",
+    "dev:frontend": "vue-cli-service serve",
+    "start": "concurrently --kill-others \"npm run start:frontend\" \"npm run start:backend\"",
+    "start:backend": "node src/backend/index.js",
+    "start:frontend": "vue-cli-service serve"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -20,11 +20,14 @@
     "express": "^4.17.1",
     "mongoose": "^5.13.0",
     "mongoose-aggregate-paginate-v2": "^1.0.42",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.10",
+    "vuex": "^4.0.0-0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-vuex": "^4.5.13",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "babel-eslint": "^10.1.0",
