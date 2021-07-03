@@ -28,12 +28,13 @@ class LogSpaceController {
       const aggr = LogSpaceModel.aggregate([
         {
           $project: {
-            name: 1
+            name: 1,
+            created_at: 1
           }
         }
       ]);
       const logspaces = await LogSpaceModel.aggregatePaginate(aggr, options);
-      res.status(201).send(logspaces);
+      res.status(200).send(logspaces);
     } catch (e) {
       console.error("Error", e.message);
       res.status(500).send({ message: "Error in getting Log Space" });

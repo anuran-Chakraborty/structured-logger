@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 const controllers = require("./controllers");
@@ -13,16 +14,17 @@ app.use(
     extended: true
   })
 );
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.status(200).send({ message: "Server working" });
 });
 
 // Log space
-app.post("/log-space", controllers.LogSpace.create);
-app.get("/log-space", controllers.LogSpace.read);
-app.put("/log-space/:id", controllers.LogSpace.update);
-app.delete("/log-space/:id", controllers.LogSpace.delete);
+app.post("/log-spaces", controllers.LogSpace.create);
+app.get("/log-spaces", controllers.LogSpace.read);
+app.put("/log-spaces/:id", controllers.LogSpace.update);
+app.delete("/log-spaces/:id", controllers.LogSpace.delete);
 
 // Logs
 app.post("/logs", controllers.Logs.create);

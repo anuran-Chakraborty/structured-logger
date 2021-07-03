@@ -14,7 +14,7 @@ class LogsController {
   static async read(req, res) {
     try {
       const logs = await LogsModel.find({ logspace_id: req.params.id });
-      res.status(201).send(logs);
+      res.status(200).send(logs);
     } catch (e) {
       console.error("Error", e.message);
       res.status(500).send({ message: "Error in getting Log Space" });

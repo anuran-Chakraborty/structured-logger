@@ -9,7 +9,7 @@ const routes = [
     component: LogSpaces
   },
   {
-    path: "/logs",
+    path: "/logs/:id",
     name: "Logs",
     component: Logs
   },
