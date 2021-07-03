@@ -2,23 +2,24 @@
   "name": "structured-logger",
   "version": "0.1.0",
   "private": true,
-  "author":"Anuran Chakraborty",
+  "author": "Anuran Chakraborty",
   "scripts": {
     "start:frontend": "vue-cli-service serve",
     "start:backend": "node src/backend/index.js",
-    "start": "npm run start:frontend && npm run start:backend",
-
+    "start": "concurrently --kill-others \"npm run start:frontend\" \"npm run start:backend\"",
     "dev:frontend": "vue-cli-service serve",
     "dev:backend": "nodemon src/backend/index.js",
-    "dev": "npm run start:frontend && npm run start:backend",
+    "dev": "concurrently --kill-others \"npm run dev:frontend\" \"npm run dev:backend\"",
     "build:frontend": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "core-js": "^3.6.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.13.0",
+    "mongoose-aggregate-paginate-v2": "^1.0.42",
     "vue": "^3.0.0"
   },
   "devDependencies": {
@@ -27,6 +28,7 @@
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "babel-eslint": "^10.1.0",
+    "concurrently": "^6.2.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0",
     "nodemon": "^2.0.9"
