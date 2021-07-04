@@ -41,7 +41,9 @@ export default {
   },
   components: {},
   created: async function () {
-    await this.fetchLogs();
+    setInterval(async () => {
+      await this.fetchLogs();
+    }, 200);
   },
   methods: {
     //action
